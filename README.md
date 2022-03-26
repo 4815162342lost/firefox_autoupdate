@@ -3,7 +3,9 @@ On Ubuntu, since 22.04, Firefox package will be delivered by snap instead of deb
 https://www.mozilla.org/ru/firefox/download/thanks/
 
 I unpacked downloaded tar.bz2 archive to /opt/firefox:
-```sudo tar -xjvf  /tmp/firefox-98.0.1.tar.bz2 -C /opt/firefox/```
+```
+sudo tar -xjvf  /tmp/firefox-98.0.1.tar.bz2 -C /opt/firefox/
+```
 
 And dow path to executiable file:
 /opt/firefox/firefox/firefox
