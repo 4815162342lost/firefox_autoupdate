@@ -1,0 +1,21 @@
+[Unit]
+Description=Service for update firefox
+Documentation=https://github.com/4815162342lost/firefox_autoupdate/blob/main/main.py
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/firefox/firefox_update.py
+KillMode=process
+KillSignal=SIGINT
+RestartSec=15s
+Restart=no
+User=root
+Group=root
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=on"
+Environment="DISPLAY=:1"
+
+[Install]
+WantedBy=multi-user.target
