@@ -3,7 +3,7 @@ On Ubuntu, since 22.04, Firefox package will be delivered by snap instead of deb
 https://www.mozilla.org/ru/firefox/download/thanks/
 
 I unpacked downloaded tar.bz2 archive to /opt/firefox:
-sudo tar -xjvf  /tmp/firefox-98.0.1.tar.bz2 -C /opt/firefox/
+```sudo tar -xjvf  /tmp/firefox-98.0.1.tar.bz2 -C /opt/firefox/```
 
 And dow path to executiable file:
 /opt/firefox/firefox/firefox
@@ -12,7 +12,7 @@ For security purposes, i will run firefox from my current user, but /opt/firefox
 
 So, autoupdate will not work, because current user can not replace files in /opt/firefox
 
-##How to install
+## How to install
 Create directory:
 mkdir /opt/firefox/
 put firefox_update.py to mentioned catalog
