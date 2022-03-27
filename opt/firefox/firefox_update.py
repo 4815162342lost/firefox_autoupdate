@@ -18,7 +18,6 @@ def get_latest_version():
         return link, version
     else:
         print(f"Status codes not OK while checking new version. Status code: {r.status_code}")
-        r.raise_for_status()
         exit(1)
 
 def get_current_version():
