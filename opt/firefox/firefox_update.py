@@ -19,7 +19,11 @@ def get_current_version():
 
 def download_firefox_archive(link, latest_version):
     print("Downloading latest version...")
-    r = requests.get(link)
+    try:
+        r = requests.get(link)
+    except Exception as e:
+        print(f"Error while download... Exception: {e}")
+        exit(1)
     firefox_file = open(f"/tmp/{latest_version}.tar.bz2", "wb")
     firefox_file.write(r.content)
     firefox_file.close()
