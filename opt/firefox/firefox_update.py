@@ -18,8 +18,8 @@ def get_latest_version():
         return link, version
     else:
         print(f"Status codes not OK while checking new version. Status code: {r.status_code}")
+        r.raise_for_status()
         exit(1)
-
 
 def get_current_version():
     firefox_run = subprocess.run([f"{os.environ['firefox_path']}firefox/firefox", '--version'], stdout=subprocess.PIPE)
@@ -38,7 +38,7 @@ def download_firefox_archive(link, latest_version):
         firefox_file.write(r.content)
         firefox_file.close()
     else:
-        print(f"Error while download new version, status code not 200. Status code: {r.status_code}")
+        print(f"Error when download... Status code: {r.status_code}")
         exit(1)
 
 def unpack_archive(latest_version):
