@@ -6,11 +6,20 @@ import tarfile
 import os
 
 def get_latest_version():
-    r = requests.head("https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US")
-    link = r.headers['Location']
-    version_re = re.search("releases/.*/linux-x86_64", link)
-    version = version_re.group(0).split('/')[1]
-    return link, version
+    try:
+        r = requests.head("https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US")
+    except Exception as e:
+        print(f"Error while check new version... Error: {e}")
+        exit(1)
+    if r.status_code == 302:
+        link = r.headers['Location']
+        version_re = re.search("releases/.*/linux-x86_64", link)
+        version = version_re.group(0).split('/')[1]
+        return link, version
+    else:
+        print(f"Status codes not OK while checking new version. Status code: {r.status_code}")
+        exit(1)
+
 
 def get_current_version():
     firefox_run = subprocess.run([f"{os.environ['firefox_path']}firefox/firefox", '--version'], stdout=subprocess.PIPE)
@@ -24,9 +33,13 @@ def download_firefox_archive(link, latest_version):
     except Exception as e:
         print(f"Error while download... Exception: {e}")
         exit(1)
-    firefox_file = open(f"/tmp/{latest_version}.tar.bz2", "wb")
-    firefox_file.write(r.content)
-    firefox_file.close()
+    if r.status_code == requests.codes.ok:
+        firefox_file = open(f"/tmp/{latest_version}.tar.bz2", "wb")
+        firefox_file.write(r.content)
+        firefox_file.close()
+    else:
+        print(f"Error while download new version, status code not 200. Status code: {r.status_code}")
+        exit(1)
 
 def unpack_archive(latest_version):
     print("Unpacking archive...")
