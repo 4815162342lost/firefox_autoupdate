@@ -1,6 +1,6 @@
 [Unit]
 Description=Service for update firefox
-Documentation=https://github.com/4815162342lost/firefox_autoupdate/blob/main/main.py
+Documentation=https://github.com/4815162342lost/firefox_autoupdate
 After=network.target
 
 [Service]
