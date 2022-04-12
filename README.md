@@ -44,7 +44,7 @@ And put this line:
 Environment="firefox_path=/opt/firefox/"
 ```
 
-Replace firefox_path (i.e. **"/opt/firefox/"**) to your firefox dirn (in my case firefox exe file here: /opt/firefox/firefox/firefox).
+Replace firefox_path (i.e. **"/opt/firefox/"**) to your firefox dir (in my case firefox exe file here: /opt/firefox/firefox/firefox).
 
 After that create systemd-timer:
 ```
