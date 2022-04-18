@@ -62,3 +62,9 @@ And
 ```
 systemctl enable --now firefox_update.timer
 ```
+
+
+You can check systemd-timers via command:
+```
+systemctl list-timers
+```
