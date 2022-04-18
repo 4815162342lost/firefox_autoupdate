@@ -26,7 +26,7 @@ Create systemd-service:
 /etc/systemd/firefox_update.service
 ```
 
-And copy content from this repo
+And copy firefox_update.service file from this repo
 
 Run this command:
 ```
@@ -51,7 +51,7 @@ After that create systemd-timer:
 /etc/systemd/system/firefox_update.timer
 ```
 
-and copy conemt from repo.
+and copy firefox_update.timer from repo.
 
 Run again:
 ```
