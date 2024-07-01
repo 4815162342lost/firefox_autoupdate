@@ -1,7 +1,7 @@
 [Unit]
 Description=Service for update firefox
 Documentation=https://github.com/4815162342lost/firefox_autoupdate
-After=network.target
+After=network.target network-online.target systemd-networkd.service NetworkManager.service connman.service
 
 [Service]
 Type=oneshot
